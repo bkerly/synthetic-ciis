@@ -110,11 +110,12 @@ synthetic_players <- for(i in 1:nrow(team_makeup)){
 
 # Predict vaccine status of synthetic records -----------------------------------------------
 
-
+# Get the predictions for MMR vaccination
 mmr_predictions <- predict(object = rf_model_mmr,
                                    newdata = synthetic_records)
 
 
+# Get the predictions for HAV vaccination
 hav_predictions <- predict(object = rf_model_HAV,
                            newdata = synthetic_records)
 
@@ -125,3 +126,5 @@ synthetic_records_preditions <- synthetic_records %>%
   mutate(MMR = true_false_prob(mmr_predictions),
          HAV = true_false_prob(hav_predictions)
   ) 
+
+
