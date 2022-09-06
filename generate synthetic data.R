@@ -52,7 +52,7 @@ vaccine_records <- read_sheet("1-fQPeU7YSjBQtnXEiLGbskeCrazKfHxOsnT727nHHy8") %>
   ) %>%
   ungroup()
 
-# We create some fake data about individual teams (which is the same technique you'd use to do data for census tracts)
+# We create some fake demographic about individual teams (which is kind of analagous to how census data comes. )
 team_makeup <- data.frame(
   team_name = vaccine_records$team_name %>% unique(),
   meanage = rnorm(28, mean = 50,sd=5),
